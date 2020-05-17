@@ -49,5 +49,5 @@ public class TestMethodOfAssert {
         TestMethodOfAssert asserts = null;
         Assert.assertNotNull(asserts);
     }
-
+    
 }
