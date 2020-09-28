@@ -12,7 +12,7 @@ public class WxHttpUtils {
     String schema = "WECHATPAY2-SHA256-RSA2048";
     HttpUrl httpurl = HttpUrl.parse(url);
 
-    static String sign(byte[] message) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
+    public static String sign(byte[] message) throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
         Signature sign = Signature.getInstance("SHA256withRSA");
         sign.initSign(yourPrivateKey);
         sign.update(message);
@@ -44,5 +44,14 @@ public class WxHttpUtils {
                 + timestamp + "\n"
                 + nonceStr + "\n"
                 + body + "\n";
+    }
+
+    private static String privateTest(String te){
+        return te;
+    }
+
+    public static String getPrivate(String te){
+        String s = WxHttpUtils.privateTest(te);
+        return s;
     }
 }
