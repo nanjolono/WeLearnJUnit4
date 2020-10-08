@@ -1,17 +1,22 @@
 package com.nanjolono.test.service.impl;
 
-import com.nanjolono.test.controller.WxHttpUtils;
+import com.nanjolono.test.bean.Student;
+import com.nanjolono.test.mapper.TestMapper;
 import com.nanjolono.test.service.TestService;
-import okhttp3.HttpUrl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
+import java.util.List;
 
+@Service
 public class TestServiceImpl implements TestService {
+    @Autowired
+    TestMapper testMapper;
     @Override
-    public String getSth() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
-        return WxHttpUtils.sign("!23".getBytes(StandardCharsets.UTF_8));
+    public List<Student> getSth() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
+        return testMapper.getStudentList();
     }
 }
