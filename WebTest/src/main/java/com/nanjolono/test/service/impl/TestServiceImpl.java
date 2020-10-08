@@ -13,8 +13,10 @@ import java.util.List;
 
 @Service
 public class TestServiceImpl implements TestService {
+
     @Autowired
-    TestMapper testMapper;
+    private TestMapper testMapper;
+
     @Override
     public List<Student> getSth() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
         return testMapper.getStudentList();

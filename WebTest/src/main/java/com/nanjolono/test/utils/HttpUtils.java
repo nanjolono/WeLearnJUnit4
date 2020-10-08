@@ -14,16 +14,14 @@ public class HttpUtils {
      * @Author: nanjolono
      * @Date: 2020/10/8
      */
-    public static ResponseEntity getForHttp(String url){
+    public static ResponseEntity<Map> getForHttp(String url){
         RestTemplate template = new RestTemplate();
-        ResponseEntity<String> entity = template.getForEntity(url,String.class);
-        return entity;
+        return template.getForEntity(url,Map.class);
     }
 
-    public static ResponseEntity<String> postForHttp(String url, Map value){
+    public static ResponseEntity<Map> postForHttp(String url, Map<Object,Object> value){
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(url, value, String.class);
-        return stringResponseEntity;
+        return restTemplate.postForEntity(url, value, Map.class);
     }
 
 }
