@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface TestService {
     List<Student> getSth() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException;
+
+    List<? super   Student> getStudent(List<? super Student> students);
 }

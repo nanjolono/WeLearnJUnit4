@@ -7,6 +7,15 @@ spring:
     password: z9426464
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      acks: 1
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml

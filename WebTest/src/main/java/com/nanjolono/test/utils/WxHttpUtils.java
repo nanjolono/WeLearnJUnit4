@@ -1,4 +1,4 @@
-package com.nanjolono.test.controller;
+package com.nanjolono.test.utils;
 import okhttp3.HttpUrl;
 
 import java.io.UnsupportedEncodingException;
@@ -51,7 +51,6 @@ public class WxHttpUtils {
     }
 
     public static String getPrivate(String te){
-        String s = WxHttpUtils.privateTest(te);
-        return s;
+        return WxHttpUtils.privateTest(te);
     }
 }

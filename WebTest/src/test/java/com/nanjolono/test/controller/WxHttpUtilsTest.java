@@ -1,14 +1,12 @@
 package com.nanjolono.test.controller;
 
+import com.nanjolono.test.utils.WxHttpUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.powermock.reflect.Whitebox;
-import org.springframework.util.Assert;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;

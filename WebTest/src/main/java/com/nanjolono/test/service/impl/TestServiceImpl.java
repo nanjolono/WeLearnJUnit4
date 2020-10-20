@@ -21,4 +21,9 @@ public class TestServiceImpl implements TestService {
     public List<Student> getSth() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
         return testMapper.getStudentList();
     }
+
+    @Override
+    public List<? super Student> getStudent(List<? super Student> students) {
+        return students;
+    }
 }
