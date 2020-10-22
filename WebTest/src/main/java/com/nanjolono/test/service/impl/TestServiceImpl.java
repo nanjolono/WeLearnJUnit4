@@ -10,6 +10,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 @Service
 public class TestServiceImpl implements TestService {
@@ -25,5 +26,10 @@ public class TestServiceImpl implements TestService {
     @Override
     public List<? super Student> getStudent(List<? super Student> students) {
         return students;
+    }
+
+    private static StringBuffer getStr(){
+        ReentrantLock reentrantLock = new ReentrantLock();
+        return null;
     }
 }
