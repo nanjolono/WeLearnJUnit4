@@ -70,7 +70,7 @@ public class TestServiceImplTest {
     public void getStudet(){
         Student s = new Student();
         OldSchoolStudent oldSchoolStudent = new OldSchoolStudent();
-        List<? super Student> students = new ArrayList<Student>();
+        List<? super Student> students = new ArrayList<>();
         students.add(s);
         students.add(oldSchoolStudent);
         List<? super Student> student = testService.getStudent(students);

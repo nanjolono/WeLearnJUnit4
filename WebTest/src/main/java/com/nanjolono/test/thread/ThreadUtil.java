@@ -1,9 +1,6 @@
 package com.nanjolono.test.thread;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * @program: test
@@ -20,33 +17,29 @@ public class ThreadUtil {
         CountDownLatch countDownLatch = new CountDownLatch(num);
         ThreadProcess tp = new ThreadProcess(countDownLatch);
         Thread2Process t2p = new Thread2Process(countDownLatch);
-        int adds = 0 ;
+        int adds = 0;
         int mnults = 0;
         Future<Integer> add;
         Future<Integer> mult;
-        try{
-            for (int i = 0; i < 10 ; i++) {
-                if(i<5){
+        try {
+            for (int i = 0; i < 100; i++) {
+                if (i % 2 == 0) {
                     add = executorService.submit(tp);
                     adds = adds + add.get();
-                }else{
+                } else {
                     mult = executorService.submit(t2p);
                     mnults = mnults + mult.get();
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             countDownLatch.await();
-            System.out.println("adds"+adds);
-            System.out.println("mnults"+mnults);
-            int res = adds+mnults;
-            System.out.println("res"+res);
+            System.out.println("adds" + adds);
+            System.out.println("mnults" + mnults);
+            int res = adds + mnults;
+            System.out.println("res" + res);
         }
         executorService.shutdown();
-    }
-    private String getStrs(String tedst){
-        String test = "12323";
-        return getStrs(test);
     }
 }

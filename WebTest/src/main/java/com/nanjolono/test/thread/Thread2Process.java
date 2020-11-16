@@ -12,21 +12,23 @@ import java.util.concurrent.CountDownLatch;
 public class Thread2Process extends ThreadParent implements Callable<Integer> {
     volatile int axw = 1;
     CountDownLatch countDownLatch;
-    Thread2Process(CountDownLatch countDownLatch){
+
+    Thread2Process(CountDownLatch countDownLatch) {
         this.countDownLatch = countDownLatch;
     }
+
     private Integer getIndex() {
-        par =par*2;
-        System.out.println("乘法业务"+Thread.currentThread()+"value:"+axw);
-        return par;
+        axw = axw * 2;
+        System.out.println("乘法业务" + Thread.currentThread() + "value:" + axw);
+        return axw;
     }
 
     @Override
     public Integer call() throws Exception {
         Integer index;
-        try{
+        try {
             index = getIndex();
-        }finally {
+        } finally {
             countDownLatch.countDown();
             Thread.currentThread().interrupt();
         }
