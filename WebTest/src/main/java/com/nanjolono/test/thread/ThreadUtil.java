@@ -1,6 +1,9 @@
 package com.nanjolono.test.thread;
 
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * @program: test
@@ -22,8 +25,8 @@ public class ThreadUtil {
         Future<Integer> add;
         Future<Integer> mult;
         try{
-            for (int i = 0; i < 100 ; i++) {
-                if(i%2==0){
+            for (int i = 0; i < 10 ; i++) {
+                if(i<5){
                     add = executorService.submit(tp);
                     adds = adds + add.get();
                 }else{
@@ -41,5 +44,9 @@ public class ThreadUtil {
             System.out.println("res"+res);
         }
         executorService.shutdown();
+    }
+    private String getStrs(String tedst){
+        String test = "12323";
+        return getStrs(test);
     }
 }

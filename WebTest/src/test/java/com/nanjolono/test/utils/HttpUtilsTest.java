@@ -6,6 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.Assert.*;
 public class HttpUtilsTest {
     String url = "http://www.baidu.com";
@@ -27,5 +32,14 @@ public class HttpUtilsTest {
         System.out.println(stringResponseEntity.getStatusCode());
         System.out.println("返回报文");
         System.out.println(stringResponseEntity.getBody());
+    }
+
+    @Test
+    public void getMap(){
+        Map map = new HashMap<String,String>();
+        map.put("1","2");
+        map.put("3","4");
+        ArrayList<String> values = (ArrayList<String>) map.values();
+        System.out.println(values);
     }
 }
