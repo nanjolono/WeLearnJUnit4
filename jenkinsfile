@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'cd /var/jenkins_home/workspace/CodeScanGit_master/WebTest'
+                sh 'cd /var/jenkins_home/workspace/CodeScanGit_master'
                 sh '/home/apache-maven-3.6.3/bin/mvn clean install'
             }
         }
