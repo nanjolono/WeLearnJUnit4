@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'cd WebTest'
-                sh 'mvn clean install'
+                sh '/home/apache-maven-3.6.3/bin/mvn clean install'
             }
         }
         stage('Test') {
