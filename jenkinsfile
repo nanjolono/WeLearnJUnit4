@@ -6,7 +6,10 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'cd /var/jenkins_home/workspace/CodeScanGit_master'
-                sh '/home/apache-maven-3.6.3/bin/mvn clean install'
+                sh '/home/apache-maven-3.6.3/bin/mvn sonar:sonar \
+                                                   -Dsonar.projectKey=nanjolono \
+                                                   -Dsonar.host.url=http://localhost:9000 \
+                                                   -Dsonar.login=3537a216e796be74b8b72b454cfe09921e7dcf26'
             }
         }
         stage('Test') {
